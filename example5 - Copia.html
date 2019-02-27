@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <div id="exercise">
+        <h1>v-for exercise</h1>
+        <ul>
+            <li v-for="(item, i) in ingredients" :key="item">{{ item }}
+                ({{ i }})
+                <!-- i is index of the array -->
+            </li> <!-- interpolation -->
+        </ul>
+        <button @click="ingredients.push('spice')">Adding ingredient</button>
+        <p>Using v-for in template tag</p>
+        <template v-for="(item, index) in ingredients">
+            <h1>{{ item }}</h1>
+            <p>{{ index }}</p>
+        </template>
+        <ul>
+            <li v-for="(person, ip) in persons">
+                <span v-for="(value, key, i) in person"> {{ key }}: {{ value }} ({{ i }}, {{ ip }})</span>
+                <!-- looping through objects-->
+            </li>
+        </ul>
+        <span v-for="n in 10">{{ n }}</span> <!-- looping through the numbers-->
+    </div>
+    <script>
+        new Vue({
+            el: "#exercise",
+            data: {
+                ingredients: ['meat', 'fruits', 'cookies'],
+                persons: [
+                    { name: 'Jax', age: 31, color: 'blue' },
+                    { name: 'Maria', age: 40, color: 'pink' },
+                    { name: 'Enedy', age: 29, color: 'orange' },
+                ]
+            },
+            methods: {
+
+            }
+        })
+    </script>
+</body>
+
+</html>

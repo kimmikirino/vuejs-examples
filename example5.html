@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <div id="exercise">
+        <p>Using v-if and v-else, it will be removed from the dom</p>
+        <p v-if="show">You can see me - v-if</p>
+        <p v-else>v-else content</p>
+        <button @click="show = !show">Switch</button>
+        <p>Use template tag as a wrapper</p>
+        <template v-if="show">
+            <h1>Testing template</h1>
+        </template>
+        <p>Using v-show</p>
+        <p v-show="show">When use v-show, the element is still there but hidden, display: none</p>
+    </div>
+    <script>
+        new Vue({
+            el: "#exercise",
+            data: {
+                show: true
+            },
+            methods: {
+
+            }
+        })
+    </script>
+</body>
+
+</html>
